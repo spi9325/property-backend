@@ -14,5 +14,6 @@ useGetProperty.get("/property",async(req:Request,res:Response)=>{
         }
     } catch (error) {
         console.log(error);
+        
     }
 })
