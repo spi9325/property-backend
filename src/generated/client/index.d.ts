@@ -895,74 +895,74 @@ export namespace Prisma {
   }
 
   export type PropertyAvgAggregateOutputType = {
-    price: number | null
+    propertyPrice: number | null
   }
 
   export type PropertySumAggregateOutputType = {
-    price: number | null
+    propertyPrice: number | null
   }
 
   export type PropertyMinAggregateOutputType = {
     id: string | null
-    name: string | null
-    price: number | null
-    location: string | null
-    info: string | null
+    propertyName: string | null
+    propertyPrice: number | null
+    propertyLocation: string | null
+    propertyInfo: string | null
     createdAt: Date | null
   }
 
   export type PropertyMaxAggregateOutputType = {
     id: string | null
-    name: string | null
-    price: number | null
-    location: string | null
-    info: string | null
+    propertyName: string | null
+    propertyPrice: number | null
+    propertyLocation: string | null
+    propertyInfo: string | null
     createdAt: Date | null
   }
 
   export type PropertyCountAggregateOutputType = {
     id: number
-    name: number
-    price: number
-    location: number
-    info: number
+    propertyName: number
+    propertyPrice: number
+    propertyLocation: number
+    propertyInfo: number
     createdAt: number
     _all: number
   }
 
 
   export type PropertyAvgAggregateInputType = {
-    price?: true
+    propertyPrice?: true
   }
 
   export type PropertySumAggregateInputType = {
-    price?: true
+    propertyPrice?: true
   }
 
   export type PropertyMinAggregateInputType = {
     id?: true
-    name?: true
-    price?: true
-    location?: true
-    info?: true
+    propertyName?: true
+    propertyPrice?: true
+    propertyLocation?: true
+    propertyInfo?: true
     createdAt?: true
   }
 
   export type PropertyMaxAggregateInputType = {
     id?: true
-    name?: true
-    price?: true
-    location?: true
-    info?: true
+    propertyName?: true
+    propertyPrice?: true
+    propertyLocation?: true
+    propertyInfo?: true
     createdAt?: true
   }
 
   export type PropertyCountAggregateInputType = {
     id?: true
-    name?: true
-    price?: true
-    location?: true
-    info?: true
+    propertyName?: true
+    propertyPrice?: true
+    propertyLocation?: true
+    propertyInfo?: true
     createdAt?: true
     _all?: true
   }
@@ -1055,10 +1055,10 @@ export namespace Prisma {
 
   export type PropertyGroupByOutputType = {
     id: string
-    name: string
-    price: number
-    location: string
-    info: string
+    propertyName: string
+    propertyPrice: number
+    propertyLocation: string
+    propertyInfo: string
     createdAt: Date
     _count: PropertyCountAggregateOutputType | null
     _avg: PropertyAvgAggregateOutputType | null
@@ -1083,51 +1083,51 @@ export namespace Prisma {
 
   export type PropertySelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    price?: boolean
-    location?: boolean
-    info?: boolean
+    propertyName?: boolean
+    propertyPrice?: boolean
+    propertyLocation?: boolean
+    propertyInfo?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    price?: boolean
-    location?: boolean
-    info?: boolean
+    propertyName?: boolean
+    propertyPrice?: boolean
+    propertyLocation?: boolean
+    propertyInfo?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    name?: boolean
-    price?: boolean
-    location?: boolean
-    info?: boolean
+    propertyName?: boolean
+    propertyPrice?: boolean
+    propertyLocation?: boolean
+    propertyInfo?: boolean
     createdAt?: boolean
   }, ExtArgs["result"]["property"]>
 
   export type PropertySelectScalar = {
     id?: boolean
-    name?: boolean
-    price?: boolean
-    location?: boolean
-    info?: boolean
+    propertyName?: boolean
+    propertyPrice?: boolean
+    propertyLocation?: boolean
+    propertyInfo?: boolean
     createdAt?: boolean
   }
 
-  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "location" | "info" | "createdAt", ExtArgs["result"]["property"]>
+  export type PropertyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "propertyName" | "propertyPrice" | "propertyLocation" | "propertyInfo" | "createdAt", ExtArgs["result"]["property"]>
 
   export type $PropertyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Property"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      name: string
-      price: number
-      location: string
-      info: string
+      propertyName: string
+      propertyPrice: number
+      propertyLocation: string
+      propertyInfo: string
       createdAt: Date
     }, ExtArgs["result"]["property"]>
     composites: {}
@@ -1553,10 +1553,10 @@ export namespace Prisma {
    */
   interface PropertyFieldRefs {
     readonly id: FieldRef<"Property", 'String'>
-    readonly name: FieldRef<"Property", 'String'>
-    readonly price: FieldRef<"Property", 'Float'>
-    readonly location: FieldRef<"Property", 'String'>
-    readonly info: FieldRef<"Property", 'String'>
+    readonly propertyName: FieldRef<"Property", 'String'>
+    readonly propertyPrice: FieldRef<"Property", 'Float'>
+    readonly propertyLocation: FieldRef<"Property", 'String'>
+    readonly propertyInfo: FieldRef<"Property", 'String'>
     readonly createdAt: FieldRef<"Property", 'DateTime'>
   }
     
@@ -1940,10 +1940,10 @@ export namespace Prisma {
 
   export const PropertyScalarFieldEnum: {
     id: 'id',
-    name: 'name',
-    price: 'price',
-    location: 'location',
-    info: 'info',
+    propertyName: 'propertyName',
+    propertyPrice: 'propertyPrice',
+    propertyLocation: 'propertyLocation',
+    propertyInfo: 'propertyInfo',
     createdAt: 'createdAt'
   };
 
@@ -2035,40 +2035,40 @@ export namespace Prisma {
     OR?: PropertyWhereInput[]
     NOT?: PropertyWhereInput | PropertyWhereInput[]
     id?: StringFilter<"Property"> | string
-    name?: StringFilter<"Property"> | string
-    price?: FloatFilter<"Property"> | number
-    location?: StringFilter<"Property"> | string
-    info?: StringFilter<"Property"> | string
+    propertyName?: StringFilter<"Property"> | string
+    propertyPrice?: FloatFilter<"Property"> | number
+    propertyLocation?: StringFilter<"Property"> | string
+    propertyInfo?: StringFilter<"Property"> | string
     createdAt?: DateTimeFilter<"Property"> | Date | string
   }
 
   export type PropertyOrderByWithRelationInput = {
     id?: SortOrder
-    name?: SortOrder
-    price?: SortOrder
-    location?: SortOrder
-    info?: SortOrder
+    propertyName?: SortOrder
+    propertyPrice?: SortOrder
+    propertyLocation?: SortOrder
+    propertyInfo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PropertyWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    name?: string
+    propertyName?: string
     AND?: PropertyWhereInput | PropertyWhereInput[]
     OR?: PropertyWhereInput[]
     NOT?: PropertyWhereInput | PropertyWhereInput[]
-    price?: FloatFilter<"Property"> | number
-    location?: StringFilter<"Property"> | string
-    info?: StringFilter<"Property"> | string
+    propertyPrice?: FloatFilter<"Property"> | number
+    propertyLocation?: StringFilter<"Property"> | string
+    propertyInfo?: StringFilter<"Property"> | string
     createdAt?: DateTimeFilter<"Property"> | Date | string
-  }, "id" | "name">
+  }, "id" | "propertyName">
 
   export type PropertyOrderByWithAggregationInput = {
     id?: SortOrder
-    name?: SortOrder
-    price?: SortOrder
-    location?: SortOrder
-    info?: SortOrder
+    propertyName?: SortOrder
+    propertyPrice?: SortOrder
+    propertyLocation?: SortOrder
+    propertyInfo?: SortOrder
     createdAt?: SortOrder
     _count?: PropertyCountOrderByAggregateInput
     _avg?: PropertyAvgOrderByAggregateInput
@@ -2082,73 +2082,73 @@ export namespace Prisma {
     OR?: PropertyScalarWhereWithAggregatesInput[]
     NOT?: PropertyScalarWhereWithAggregatesInput | PropertyScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Property"> | string
-    name?: StringWithAggregatesFilter<"Property"> | string
-    price?: FloatWithAggregatesFilter<"Property"> | number
-    location?: StringWithAggregatesFilter<"Property"> | string
-    info?: StringWithAggregatesFilter<"Property"> | string
+    propertyName?: StringWithAggregatesFilter<"Property"> | string
+    propertyPrice?: FloatWithAggregatesFilter<"Property"> | number
+    propertyLocation?: StringWithAggregatesFilter<"Property"> | string
+    propertyInfo?: StringWithAggregatesFilter<"Property"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Property"> | Date | string
   }
 
   export type PropertyCreateInput = {
     id?: string
-    name: string
-    price: number
-    location: string
-    info: string
+    propertyName: string
+    propertyPrice: number
+    propertyLocation: string
+    propertyInfo: string
     createdAt?: Date | string
   }
 
   export type PropertyUncheckedCreateInput = {
     id?: string
-    name: string
-    price: number
-    location: string
-    info: string
+    propertyName: string
+    propertyPrice: number
+    propertyLocation: string
+    propertyInfo: string
     createdAt?: Date | string
   }
 
   export type PropertyUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    location?: StringFieldUpdateOperationsInput | string
-    info?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    propertyPrice?: FloatFieldUpdateOperationsInput | number
+    propertyLocation?: StringFieldUpdateOperationsInput | string
+    propertyInfo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PropertyUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    location?: StringFieldUpdateOperationsInput | string
-    info?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    propertyPrice?: FloatFieldUpdateOperationsInput | number
+    propertyLocation?: StringFieldUpdateOperationsInput | string
+    propertyInfo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PropertyCreateManyInput = {
     id?: string
-    name: string
-    price: number
-    location: string
-    info: string
+    propertyName: string
+    propertyPrice: number
+    propertyLocation: string
+    propertyInfo: string
     createdAt?: Date | string
   }
 
   export type PropertyUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    location?: StringFieldUpdateOperationsInput | string
-    info?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    propertyPrice?: FloatFieldUpdateOperationsInput | number
+    propertyLocation?: StringFieldUpdateOperationsInput | string
+    propertyInfo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PropertyUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    price?: FloatFieldUpdateOperationsInput | number
-    location?: StringFieldUpdateOperationsInput | string
-    info?: StringFieldUpdateOperationsInput | string
+    propertyName?: StringFieldUpdateOperationsInput | string
+    propertyPrice?: FloatFieldUpdateOperationsInput | number
+    propertyLocation?: StringFieldUpdateOperationsInput | string
+    propertyInfo?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2191,37 +2191,37 @@ export namespace Prisma {
 
   export type PropertyCountOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    price?: SortOrder
-    location?: SortOrder
-    info?: SortOrder
+    propertyName?: SortOrder
+    propertyPrice?: SortOrder
+    propertyLocation?: SortOrder
+    propertyInfo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PropertyAvgOrderByAggregateInput = {
-    price?: SortOrder
+    propertyPrice?: SortOrder
   }
 
   export type PropertyMaxOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    price?: SortOrder
-    location?: SortOrder
-    info?: SortOrder
+    propertyName?: SortOrder
+    propertyPrice?: SortOrder
+    propertyLocation?: SortOrder
+    propertyInfo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PropertyMinOrderByAggregateInput = {
     id?: SortOrder
-    name?: SortOrder
-    price?: SortOrder
-    location?: SortOrder
-    info?: SortOrder
+    propertyName?: SortOrder
+    propertyPrice?: SortOrder
+    propertyLocation?: SortOrder
+    propertyInfo?: SortOrder
     createdAt?: SortOrder
   }
 
   export type PropertySumOrderByAggregateInput = {
-    price?: SortOrder
+    propertyPrice?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {

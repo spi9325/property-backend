@@ -11,10 +11,9 @@ datasource db {
 
 model Property {
   id        String    @id @default(cuid())
-  name     String    @unique
-  price    Float
-  location String
-  info     String
+  propertyName     String    @unique
+  propertyPrice    Float
+  propertyLocation String
+  propertyInfo     String
   createdAt DateTime  @default(now())
-  @@index([location])
 }

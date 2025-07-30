@@ -7,20 +7,20 @@ export const useSaveProperty = Router();
 
 useSaveProperty.post("/property",async(req:Request,res:Response)=>{
     try {
-        // const {propertyName,propertyPrice,propertyLocation,propertyInfo} = req.body;
         const validData = propertyTypes.safeParse(req.body);
-        if(!validData.success || validData.error) return
+
+        if(!validData.success) return
         const result =await prisma.property.create({
             data:{
-                name:validData.data?.propertyName,
-                price:validData.data?.propertyPrice,
-                location:validData.data?.propertyLocation,
-                info:validData.data?.propertyInfo,
+                propertyName:validData.data?.propertyName,
+                propertyPrice:validData.data?.propertyPrice,
+                propertyLocation:validData.data?.propertyLocation,
+                propertyInfo:validData.data?.propertyInfo,
             }
         })
 
         if(result){
-            res.status(200).json({result})
+            res.status(200).json({success:"ok"})
         }else{
             res.status(400).json({error:"error to add property"})
         }

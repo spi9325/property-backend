@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 import cors from "cors"
 import { useSaveProperty } from "./routes/useSaveProperty";
 import { useGetProperty } from "./routes/useGetProperty";
-import { domain } from "zod/v4/core/regexes.cjs";
 dotenv.config();
 const app = express()
 app.use(cors());
