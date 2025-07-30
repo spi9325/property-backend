@@ -5,7 +5,7 @@ export const useGetProperty = Router();
 
 useGetProperty.get("/property",async(req:Request,res:Response)=>{
     try {
-        const result =await prisma.property.findMany();
+        const result =await prisma.property.findMany({select:{propertyName:true,propertyPrice:true,propertyLocation:true,propertyInfo:true}});
 
         if(result){
             res.status(200).json({result})
