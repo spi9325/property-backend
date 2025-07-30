@@ -1,13 +1,15 @@
 import express from "express";
 import dotenv from "dotenv"
 import cors from "cors"
+import job from "./config/cron"
 import { useSaveProperty } from "./routes/useSaveProperty";
 import { useGetProperty } from "./routes/useGetProperty";
 dotenv.config();
-const app = express()
+const app = express();
 app.use(cors({
   origin: ['https://property-dashboard-roan.vercel.app'], 
 }));
+if(process.env.NODE_ENV == "production") job.start();
 app.use(express.json());
 
 app.use("/add",useSaveProperty)
