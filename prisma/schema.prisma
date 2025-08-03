@@ -16,23 +16,57 @@ model Property {
   propertyInfo     String
   createdAt DateTime  @default(now())
 }
-model Template {
-  id          String   @id @default(cuid())
-  Name    String?   
-  Email   String?
-  Age     String?
-  Projects String?
-  Experience String?
-  Location String?
-  Role     String?
-  Title    String?
-  Tagline  String?
-  Profile  String?
-  Image    String?
-  Bio      String?
-  Social   String?
-  Service    String?
-  Description String?
-  Client   String?
-  Review   String?
+
+model BasicData {
+  id            String         @id @default(cuid())
+  Name          String
+  Email         String         @unique
+  Age           String
+  Projects      String
+  Experience    String
+  Location      String
+  Role          String
+
+  HeroData      HeroData?
+  About         About?
+  Services      Service[]
+  Testimonials  Testimonial[]
+}
+
+model HeroData {
+  id        String     @id @default(cuid())
+  Title     String
+  Tagline   String
+  Profile   String
+  Image     String
+
+  Email     String     @unique
+  basicData BasicData  @relation(fields: [Email], references: [Email])
+}
+
+model About {
+  id        String     @id @default(cuid())
+  Bio       String
+  Social    String[]
+
+  Email     String     @unique
+  basicData BasicData  @relation(fields: [Email], references: [Email])
+}
+
+model Service {
+  id          String     @id @default(cuid())
+  Service     String
+  Description String
+
+  Email       String
+  basicData   BasicData  @relation(fields: [Email], references: [Email])
+}
+
+model Testimonial {
+  id        String     @id @default(cuid())
+  Client    String
+  Review    String
+
+  Email     String
+  basicData BasicData  @relation(fields: [Email], references: [Email])
 }

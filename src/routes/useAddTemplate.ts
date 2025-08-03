@@ -9,18 +9,24 @@ useAddTemplate.post("/basicdata",async(req:Request,res:Response)=>{
     try {
         const { Name,Email,Age,Projects,Experience,Location,Role } = req.body;
         if(!Name || !Email || !Age || !Projects || !Experience || !Location || !Role) return
-        await prisma.template.create({
+        const alredyExist = await prisma.heroData.findFirst({
+            where:{
+                Email
+            }
+        })
+        if(alredyExist) return res.json({error:"alredy exist"})
+        await prisma.basicData.create({
             data:{
                 Name,
                 Email,
-                Age,
-                Projects,
-                Experience,
+                Age:Age.toString(),
+                Projects:Projects.toString(),
+                Experience:Experience.toString(),
                 Location,
                 Role
             }
         });
-        res.status(200);
+        res.status(200).json({sucess:"ok"});
     } catch (error) {
         console.log(error);
         
@@ -28,17 +34,29 @@ useAddTemplate.post("/basicdata",async(req:Request,res:Response)=>{
 })
 useAddTemplate.post("/herodata",async(req:Request,res:Response)=>{
     try {
-        const { Title,Tagline,Profile,Image } = req.body;
-        if(!Title || !Tagline || !Profile || !Image) return
-        await prisma.template.create({
-            data:{
-                Title,
+        const { Email,Title,Tagline,Profile,Image } = req.body;
+        
+        if(!Email || !Title || !Tagline || !Profile || !Image) return
+            
+        await prisma.heroData.upsert({
+            where: {
+                Email
+            },
+            update:{
+                Title ,
                 Tagline,
                 Profile,
                 Image,
+            },
+            create:{
+                Title ,
+                Tagline,
+                Profile,
+                Image,
+                Email 
             }
         });
-        res.status(200);
+        res.status(200).json({sucess:"ok"});
     } catch (error) {
         console.log(error);
         
@@ -46,31 +64,40 @@ useAddTemplate.post("/herodata",async(req:Request,res:Response)=>{
 })
 useAddTemplate.post("/aboutdata",async(req:Request,res:Response)=>{
     try {
-        const { Bio,Social } = req.body;
-        if(!Bio || !Social) return
-        await prisma.template.create({
-            data:{
-                Bio,
-                Social,
-            }
+        const { Email,Bio,Social } = req.body;
+        if(!Email || !Bio || !Social) return
+        await prisma.about.upsert({
+           where:{
+            Email
+           },
+           update:{
+            Bio,
+            Social
+           },
+           create:{
+            Bio,
+            Social,
+            Email
+           }
         });
-        res.status(200);
+        res.status(200).json({sucess:"ok"});
     } catch (error) {
         console.log(error);
         
     }
 })
-useAddTemplate.post("/Servicedata",async(req:Request,res:Response)=>{
+useAddTemplate.post("/servicedata",async(req:Request,res:Response)=>{
     try {
-        const { Service,Description } = req.body;
-        if(!Service || !Description) return
-        await prisma.template.create({
-            data:{
-                Service,
-                Description,
-            }
+        const { Email,Service,Description } = req.body;
+        if(!Email || !Service || !Description) return
+        await prisma.service.create({
+           data:{
+            Service,
+            Description,
+            Email
+           }
         });
-        res.status(200);
+        res.status(200).json({sucess:"ok"});
     } catch (error) {
         console.log(error);
         
@@ -78,19 +105,20 @@ useAddTemplate.post("/Servicedata",async(req:Request,res:Response)=>{
 })
 useAddTemplate.post("/testimonialdata",async(req:Request,res:Response)=>{
     try {
-        const { Client,Review } = req.body;
-        if(!Client || !Review) return
-        await prisma.template.create({
+        const { Email,Client,Review } = req.body;
+        if(!Email || !Client || !Review) return
+        await prisma.testimonial.create({
             data:{
                 Client,
                 Review,
+                Email
             }
         });
-        res.status(200);
+        res.status(200).json({sucess:"ok"});
     } catch (error) {
         console.log(error);
-        
     }
 })
+
 
 

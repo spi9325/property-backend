@@ -5,6 +5,7 @@ import job from "./config/cron"
 import { useSaveProperty } from "./routes/useSaveProperty";
 import { useGetProperty } from "./routes/useGetProperty";
 import { useAddTemplate } from "./routes/useAddTemplate";
+import { useData } from "./routes/useData";
 dotenv.config();
 const app = express();
 app.use(cors({
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use("/add",useSaveProperty)
 app.use("/getall",useGetProperty)
 app.use("/addtemplate",useAddTemplate)
+app.use("/get",useData);
 
 
 app.listen(process.env.PORT || 8080,()=>console.log("server running on port",process.env.PORT))
