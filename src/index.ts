@@ -9,7 +9,7 @@ import { useData } from "./routes/useData";
 dotenv.config();
 const app = express();
 app.use(cors({
-  origin: ['https://property-dashboard-roan.vercel.app','http://localhost:3000'], 
+  origin: ['https://property-dashboard-roan.vercel.app','http://localhost:3000','https://portfolio-template-five-puce.vercel.app'], 
 }));
 if(process.env.NODE_ENV == "production") job.start();
 app.use(express.json());
