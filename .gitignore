@@ -19,10 +19,13 @@ npm-debug.log*
 Thumbs.db
 
 # IDEs
-.vscode/
 .idea/
 
 # TypeScript cache
 *.tsbuildinfo
 
 # /src/generated/prisma
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore
+branch_structure.json

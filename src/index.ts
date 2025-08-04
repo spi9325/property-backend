@@ -1,4 +1,5 @@
 import express from "express";
+
 import dotenv from "dotenv"
 import cors from "cors"
 import job from "./config/cron"
@@ -11,8 +12,11 @@ const app = express();
 app.use(cors({
   origin: ['https://property-dashboard-roan.vercel.app','http://localhost:3000','https://portfolio-template-five-puce.vercel.app'], 
 }));
-if(process.env.NODE_ENV == "production") job.start();
+if(process.env.NODE_ENV == "production"){ job.start();}
 app.use(express.json());
+
+
+
 
 app.use("/add",useSaveProperty)
 app.use("/getall",useGetProperty)
