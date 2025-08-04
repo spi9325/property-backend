@@ -31,6 +31,7 @@ model BasicData {
   About         About?
   Services      Service[]
   Testimonials  Testimonial[]
+  Skill         Skill[]
 }
 
 model HeroData {
@@ -67,6 +68,18 @@ model Testimonial {
   Client    String
   Review    String
 
+  Email     String
+  basicData BasicData  @relation(fields: [Email], references: [Email])
+}
+model Skill {
+  id        String     @id @default(cuid())
+  Title     String     @unique
+  SkillOne  String
+  SkillTwo  String
+  SkillThird String
+  RatingOne String
+  RatingTwo String
+  RatingThird String
   Email     String
   basicData BasicData  @relation(fields: [Email], references: [Email])
 }

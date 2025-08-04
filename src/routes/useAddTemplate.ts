@@ -119,6 +119,27 @@ useAddTemplate.post("/testimonialdata",async(req:Request,res:Response)=>{
         console.log(error);
     }
 })
+useAddTemplate.post("/skilldata",async(req:Request,res:Response)=>{
+    try {
+        const { Email,Title,SkillOne,RatingOne,SkillTwo,RatingTwo,SkillThird,RatingThird } = req.body;
+        if(!Email || !Title || !SkillOne || !SkillTwo || !SkillThird || !RatingOne || !RatingTwo || !RatingThird) return
+        await prisma.skill.create({
+            data:{
+                Email,
+                Title,
+                SkillOne,
+                SkillTwo,
+                SkillThird,
+                RatingOne,
+                RatingTwo,
+                RatingThird
+            }
+        });
+        res.status(200).json({sucess:"ok"});
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 

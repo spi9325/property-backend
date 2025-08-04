@@ -57,4 +57,17 @@ export const useData = Router();
         console.log(error);
     }
 })
+ useData.post("/skilldata",async(req:Request,res:Response)=>{
+    try {
+        const {Email} = req.body;
+        const allSkillDetails = await prisma.skill.findMany({
+            where:{
+                Email
+            },
+        });
+        res.status(200).json({allSkillDetails});
+    } catch (error) {
+        console.log(error);
+    }
+})
 
